@@ -60,7 +60,7 @@ public class TestPOS {
         String testingFile = rm.getString("testData");
 
 
-
+        System.out.println("Running test on file '" + testingFile + "'..." );
         TestDiscrete.testDiscrete(new TestDiscrete(), new POSTagger(), new POSLabel(),
                 new POSBracketToToken(testingFile), true, 0);
     }
