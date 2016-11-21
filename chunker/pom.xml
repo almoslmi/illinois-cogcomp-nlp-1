@@ -19,7 +19,8 @@
         <dependency>
             <groupId>edu.illinois.cs.cogcomp</groupId>
             <artifactId>LBJava</artifactId>
-            <version>1.2.24</version>
+            <version>1.2.26-singleprecision</version>
+            <!--<version>1.2.24</version>-->
         </dependency>
         <dependency>
             <groupId>edu.illinois.cs.cogcomp</groupId>
@@ -31,15 +32,15 @@
             <artifactId>illinois-pos</artifactId>
             <version>3.0.83-singleprecision</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>edu.illinois.cs.cogcomp</groupId>-->
+            <!--<artifactId>illinois-pos-models</artifactId>-->
+            <!--<version>3.0.13</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>edu.illinois.cs.cogcomp</groupId>
             <artifactId>illinois-pos-models</artifactId>
-            <version>3.0.13</version>
-        </dependency>
-        <dependency>
-            <groupId>edu.illinois.cs.cogcomp</groupId>
-            <artifactId>illinois-chunker-model</artifactId>
-            <version>3.0.77</version>
+            <version>3.1.0</version>
         </dependency>
         <dependency>
             <groupId>edu.illinois.cs.cogcomp</groupId>

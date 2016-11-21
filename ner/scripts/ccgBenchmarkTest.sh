@@ -11,11 +11,11 @@
 mvn compile
 mvn dependency:copy-dependencies
 
-test="/shared/corpora/ratinov2/NER/Data/GoldData/Reuters/BracketsFormatDocumentsSplitMyTokenization/Test/"
+test="/shared/corpora/ratinov2/NER/Data/GoldData/Reuters/ColumnFormatDocumentsSplit/Test/"
 
 configFile="config/ner.properties"
 
 # Classpath
-cpath="target/classes:target/dependency/*"
+cpath="target/classes:target/dependency/*:."
 
 java -classpath  ${cpath} -Xmx8g edu.illinois.cs.cogcomp.ner.NerTagger -test ${test} -r ${configFile}

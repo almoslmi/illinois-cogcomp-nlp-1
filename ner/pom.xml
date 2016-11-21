@@ -55,7 +55,8 @@
         <dependency>
             <groupId>edu.illinois.cs.cogcomp</groupId>
             <artifactId>LBJava</artifactId>
-            <version>1.2.26</version>
+            <version>1.2.26-singleprecision</version>
+            <!--<version>1.2.26</version>-->
         </dependency>
         <dependency>
             <groupId>edu.illinois.cs.cogcomp</groupId>
@@ -64,18 +65,18 @@
         </dependency>
 
         <!-- models: you need to use/specify a new path to avoid using these -->
-        <dependency>
-            <groupId>edu.illinois.cs.cogcomp</groupId>
-            <artifactId>illinois-ner-model</artifactId>
-            <version>3.0</version>
-            <classifier>CoNLL</classifier>
-        </dependency>
-        <dependency>
-            <groupId>edu.illinois.cs.cogcomp</groupId>
-            <artifactId>illinois-ner-model</artifactId>
-            <version>3.0</version>
-            <classifier>OntoNotes</classifier>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>edu.illinois.cs.cogcomp</groupId>-->
+            <!--<artifactId>illinois-ner-model</artifactId>-->
+            <!--<version>3.0</version>-->
+            <!--<classifier>CoNLL</classifier>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>edu.illinois.cs.cogcomp</groupId>-->
+            <!--<artifactId>illinois-ner-model</artifactId>-->
+            <!--<version>3.0</version>-->
+            <!--<classifier>OntoNotes</classifier>-->
+        <!--</dependency>-->
         
         <!-- Non-Illinois packages -->
         <dependency>

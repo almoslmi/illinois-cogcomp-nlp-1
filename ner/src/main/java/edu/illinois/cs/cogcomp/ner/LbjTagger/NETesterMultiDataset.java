@@ -17,6 +17,8 @@ import edu.illinois.cs.cogcomp.ner.ExpressiveFeatures.ExpressiveFeaturesAnnotato
 import edu.illinois.cs.cogcomp.ner.IO.OutFile;
 import edu.illinois.cs.cogcomp.ner.InferenceMethods.Decoder;
 import edu.illinois.cs.cogcomp.ner.LbjFeatures.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.Vector;
 
 public class NETesterMultiDataset {
 
+    private static final Logger logger = LoggerFactory.getLogger(NETesterMultiDataset.class);
     /**
      * NB: assuming column format
      */
@@ -272,6 +275,7 @@ public class NETesterMultiDataset {
                     NEWord originalW = (NEWord) originalSentence.get(j);
                     NEWord w = new NEWord(new Word(originalW.form), null, null);
                     w.neLabel = originalW.neLabel;
+                    logger.debug( "tagged label: '{}'; orig label: '{}'", w.neLabel, originalW.neLabel );
                     if (w.neLabel.indexOf('-') > -1
                             && dataSet.labelsToIgnoreForEvaluation.contains(w.neLabel.substring(2)))
                         w.neLabel = "O";

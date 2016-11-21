@@ -14,7 +14,10 @@ ROUND=5
 
 mkdir -p $MODELDIR
 
+echo "running command 'mvn exec:java -Dexec.mainClass=edu.illinois.cs.cogcomp.chunker.main.ChunkerTrain -Dexec.args=\"$TRAINFILE $MODELDIR $MODELNAME $ROUND\"'"
+
 mvn exec:java -Dexec.mainClass=edu.illinois.cs.cogcomp.chunker.main.ChunkerTrain -Dexec.args="$TRAINFILE $MODELDIR $MODELNAME $ROUND"
+
 
 #   Specify the portion of dev set
 #   mvn exec:java -Dexec.mainClass=edu.illinois.cs.cogcomp.chunker.main.ChunkerTrain -Dexec.args="$TRAINFILE $MODELDIR $MODELNAME $ROUND 0.2"
