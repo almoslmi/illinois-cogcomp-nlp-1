@@ -40,6 +40,22 @@ public class ChunkerTrain {
         this.init();
     }
 
+    public static void main(String[] args) {
+        if(args.length!=4&&args.length!=5){
+            System.out.println("Usage1: ...ChunkerTrain traindata modeldir modelname round");
+            System.out.println("Usage2: ...ChunkerTrain traindata modeldir modelname max_round dev_ratio");
+            System.exit(-1);
+        }
+        ChunkerTrain trainer = new ChunkerTrain(Integer.parseInt(args[3]));
+        if(args.length==4) {
+            trainer.trainModels(args[0]);
+        }
+        else if(args.length==5){
+            trainer.trainModels(args[0], args[1],args[2],Double.parseDouble(args[4]));
+        }
+        trainer.writeModelsToDisk(args[1],args[2]);
+    }
+
     public void init() {
         rm = new ChunkerConfigurator().getDefaultConfig();
         String modelFile = rm.getString("modelPath");
@@ -72,7 +88,7 @@ public class ChunkerTrain {
 
     /**
      * Trains the chunker models with the specified training data
-     * 
+     *
      * @param parser Parser for the training data. Initialized in trainModels(String trainingData)
      */
     public void trainModelsWithParser(Parser parser) {
@@ -174,24 +190,10 @@ public class ChunkerTrain {
         chunker.save();
         System.out.println("Done training, models are in " + rm.getString("modelDirPath"));
     }
+
     public void writeModelsToDisk(String dir, String modelName){
         IOUtils.mkdir(dir);
         chunker.write(dir + File.separator + modelName + ".lc", dir + File.separator + modelName + ".lex");
         System.out.println("Done training, models are in " + dir+File.separator+modelName+".lc (.lex)");
-    }
-    public static void main(String[] args) {
-        if(args.length!=4&&args.length!=5){
-            System.out.println("Usage1: ...ChunkerTrain traindata modeldir modelname round");
-            System.out.println("Usage2: ...ChunkerTrain traindata modeldir modelname max_round dev_ratio");
-            System.exit(-1);
-        }
-        ChunkerTrain trainer = new ChunkerTrain(Integer.parseInt(args[3]));
-        if(args.length==4) {
-            trainer.trainModels(args[0]);
-        }
-        else if(args.length==5){
-            trainer.trainModels(args[0], args[1],args[2],Double.parseDouble(args[4]));
-        }
-        trainer.writeModelsToDisk(args[1],args[2]);
     }
 }

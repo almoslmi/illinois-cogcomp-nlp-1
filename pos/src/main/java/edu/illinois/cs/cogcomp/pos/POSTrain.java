@@ -47,6 +47,18 @@ public class POSTrain {
         this.init();
     }
 
+    public static void main(String[] args) throws Exception{
+        POSTrain trainer;
+        if(args.length > 0) {
+            System.out.printf("Use config file : %s\n", args[0]);
+            trainer = new POSTrain(50, args[0]);
+        }
+        else
+            trainer = new POSTrain(1);
+        trainer.trainModels();
+        trainer.writeModelsToDisk();
+    }
+
     /**
      * Known and unknown taggers to be trained later.
      */
@@ -75,7 +87,7 @@ public class POSTrain {
 
     /**
      * Trains the taggers with specified, labeled training data.
-     * 
+     *
      * @param trainingData The labeled training data
      */
     public void trainModels(String trainingData) {
@@ -129,17 +141,5 @@ public class POSTrain {
         taggerKnown.save();
         taggerUnknown.save();
         System.out.println("Done training, wrote models to disk.");
-    }
-
-    public static void main(String[] args) throws Exception{
-        POSTrain trainer;
-        if(args.length > 0) {
-            System.out.printf("Use config file : %s\n", args[0]);
-            trainer = new POSTrain(50, args[0]);
-        }
-        else
-            trainer = new POSTrain(50);
-        trainer.trainModels();
-        trainer.writeModelsToDisk();
     }
 }
